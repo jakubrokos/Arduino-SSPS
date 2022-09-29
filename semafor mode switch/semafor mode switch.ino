@@ -74,7 +74,4 @@ void loop() {
   Serial.println(buttonState);
   Serial.println(analogRead(POTENTIOMETER_PIN));
   delay(100);
-
-
-
 }
