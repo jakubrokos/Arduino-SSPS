@@ -13,7 +13,7 @@ void setup() {
 
 void loop() {
   
-  //cte buttonPin
+  //čte buttonPin
   buttonState = digitalRead(buttonPin);
   
   //meni buttonState
@@ -27,30 +27,51 @@ void loop() {
   }
   if (buttonState == 1)
   {
-    //blikani
+    //blikání
+
+    //red
     digitalWrite(12, HIGH);   
     delay(analogRead(POTENTIOMETER_PIN));              
     digitalWrite(12, LOW);
 
+    //yellow
     digitalWrite(11, HIGH);
     delay(analogRead(POTENTIOMETER_PIN));              
     digitalWrite(11, LOW);
 
+    //green
     digitalWrite(10, HIGH);
     delay(analogRead(POTENTIOMETER_PIN));
     digitalWrite(10, LOW);
 
+    //yellow
     digitalWrite(11, HIGH);
     delay(analogRead(POTENTIOMETER_PIN));              
     digitalWrite(11, LOW);
   } else {
-    //normalni semafor
+    //normalní semafor
+
+    //red + yellow
+    digitalWrite(12, HIGH);
+    delay(2000);
+    digitalWrite(11, HIGH);
+    delay(1000);              
+    digitalWrite(12, LOW);
+    digitalWrite(11, LOW);
+
+    //only green
+    digitalWrite(10, HIGH);
+    delay(2000);              
+    digitalWrite(10, LOW);
+    
+    //only yellow
+    digitalWrite(11, HIGH);
+    delay(1000);
+    digitalWrite(11, LOW);
   }
-  //vypisuje
+
+  //vypisuje buttonState a hodnotu potenciometru
   Serial.println(buttonState);
   Serial.println(analogRead(POTENTIOMETER_PIN));
   delay(100);
-
-
-
 }
