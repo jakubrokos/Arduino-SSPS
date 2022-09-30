@@ -14,18 +14,14 @@ void setup() {
 void loop() {
   
   //čte buttonPin
-  buttonState = digitalRead(buttonPin);
+  buttonPress = digitalRead(buttonPin);
   
   //meni buttonState
   if (buttonPress == 1) {
-    if (buttonState == true){
-      buttonState = false;
-    }
-    if(buttonState == false){
-      buttonState = true;
-    }
+    buttonState =!buttonState;
   }
-  if (buttonState == 1)
+  Serial.println(buttonState);
+  if (buttonState == true)
   {
     //blikání
 
@@ -63,11 +59,12 @@ void loop() {
     digitalWrite(10, HIGH);
     delay(2000);              
     digitalWrite(10, LOW);
-    
+
     //only yellow
     digitalWrite(11, HIGH);
     delay(1000);
     digitalWrite(11, LOW);
+
   }
 
   //vypisuje buttonState a hodnotu potenciometru
