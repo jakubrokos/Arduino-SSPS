@@ -1,1 +1,5 @@
 https://www.tinkercad.com/things/idNF8tUVRol-arduino-semafor/editel?sharecode=M8GKJECzgX_kyH6WIquHuh-j0mm39SEMPrf5UnEnzOE
+
+
+https://42bots.com/tutorials/arduino-joystick-module-example/
+odkaz na joystick
