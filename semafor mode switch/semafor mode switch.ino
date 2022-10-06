@@ -1,27 +1,23 @@
 #define POTENTIOMETER_PIN A0
 int buttonPress = 0;
-bool buttonState = true;
-const int buttonPin = 7;
+bool mode = true;
+const int buttonPin = 2;
 
 void setup() {
   pinMode(12, OUTPUT);
   pinMode(11, OUTPUT);
   pinMode(10, OUTPUT);
   Serial.begin(9600);
-  pinMode(buttonPin, INPUT);
+  attachInterrupt(digitalPinToInterrupt(buttonPin), blink, CHANGE);
+}
+
+void blink() {
+  mode =!mode;
 }
 
 void loop() {
-  
-  //čte buttonPin
-  buttonPress = digitalRead(buttonPin);
-  
-  //meni buttonState
-  if (buttonPress == 1) {
-    buttonState =!buttonState;
-  }
-  Serial.println(buttonState);
-  if (buttonState == true)
+  //Serial.println(buttonState);
+  if (mode == true)
   {
     //blikání
 
@@ -68,7 +64,8 @@ void loop() {
   }
 
   //vypisuje buttonState a hodnotu potenciometru
-  Serial.println(buttonState);
+  Serial.println(buttonPress);
+  Serial.println(mode);
   Serial.println(analogRead(POTENTIOMETER_PIN));
-  delay(100);
+
 }
