@@ -7,7 +7,7 @@ void setup() {
   pinMode(12, OUTPUT);
   pinMode(11, OUTPUT);
   pinMode(10, OUTPUT);
-  Serial.begin(9600);
+  //Serial.begin(9600);
   attachInterrupt(digitalPinToInterrupt(buttonPin), blink, CHANGE);
 }
 
@@ -16,7 +16,7 @@ void blink() {
 }
 
 void loop() {
-  //Serial.println(buttonState);
+  Serial.println(buttonState);
   if (mode == true)
   {
     //blikání
